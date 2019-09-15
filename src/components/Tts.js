@@ -7,7 +7,7 @@ const Tts = () => {
   const [text, setText] = useState('')
   const [audio, setAudio] = useState('')
   const [voice, setVoice] = useState('en-US_AllisonVoice')
-  const BASE_URL = `https://cors-anywhere.herokuapp.com/https://gateway-tok.watsonplatform.net/text-to-speech/api/v1/synthesize?accept=audio/ogg;codecs=opus&voice=${voice}`
+  const BASE_URL = `https://gateway-tok.watsonplatform.net/text-to-speech/api/v1/synthesize?accept=audio/ogg;codecs=opus&voice=${voice}`
   const API_KEY = process.env.REACT_APP_API_KEY
 
   useEffect(() => {
@@ -36,7 +36,8 @@ const Tts = () => {
   const submit = async () => {
     const config = {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       },
       responseType: 'arraybuffer',
       auth: {
